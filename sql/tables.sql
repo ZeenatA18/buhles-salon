@@ -1,5 +1,5 @@
 -- Table create scripts here
-buhles_salon
+-- buhles_salon
 
 CREATE TABLE client(
     id SERIAL NOT NULL PRIMARY KEY,
