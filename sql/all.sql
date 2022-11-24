@@ -1,2 +1,2 @@
-\i tables.sql
-\i data.sql
+\i sql/tables.sql
+\i sql/data.sql
