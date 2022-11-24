@@ -40,7 +40,7 @@ module.exports = function salonBooking(db) {
         return db_results
     }
 
-    async function totalIncomeForDay(date)
+    // async function totalIncomeForDay(date)
 
     return {
         findStylist,
