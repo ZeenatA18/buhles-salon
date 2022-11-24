@@ -54,4 +54,4 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     env: 
-      DATABASE_URL: postgresql://postgresql://postgres:pg123@localhost:5432/salon_test
+      DATABASE_URL: postgresql://postgres:pg123@localhost:5432/salon_test
