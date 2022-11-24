@@ -40,7 +40,7 @@ describe("The Booking Salon", function () {
         await booking.makeBooking(1, 2, 1, '2022-11-26', '07:00:00');
 
         const bookings = await booking.findClientBookings(1);
-        console.log(bookings);
+
         assert.deepEqual([{
             booking_date: new Date('2022-11-22T22:00:00.000Z'),
             booking_time: '07:00:00',
@@ -57,37 +57,34 @@ describe("The Booking Salon", function () {
         }], bookings);
     });
 
-    // it("should be able to allow a client to make a booking", async function () {
-    //     // await booking.client('Zee', 'Avontuur', '062 166 8479')
+    it("should be able to allow a client to make a booking", async function () {
+        const client = await booking.findClient("062 166 8478");
+        console.log(client);
+        const clientID = await booking.clientID('Zee')
+        // console.log(clientID);
 
-    //     // let userid = await booking.clientID(Zee)
+        const book = await booking.makeBooking(1, 2, 1, '2022-11-23', '07:00:00');
+        // console.log(book);/
+        const bookings = await booking.findAllBookings(client);
+        // console.log(bookings);
 
-    //     const bookings = await booking.makeBooking(, 2, 3, '2022-11-24', '07:00:00');
-
-    //     assert.equal([], bookings)
-    // })
+        assert.equal([], bookings);
+    })
 
     // it("should be able to get bookings for a date", async function () {
-    //     // const client1 = await booking.findClient("Zee");
-    //     // const client2 = await booking.findClient("***");
-    //     // const treatment1 = await booking.findTreatment("mua");
-    //     // const treatment2 = await booking.findTreatment("***");
-    //     // const stylist1 = await booking.findTreatment("mua");
+    //     const client1 = await booking.findClient("***");
+    //     const client2 = await booking.findClient("***");
 
-    //     await booking.makeBooking(1 , 2 , 1 ,'2022-11-24', '07:00:00');
-    //     // await booking.makeBooking(treatment2.id, client1.id, date, time);
-    //     // await booking.makeBooking(treatment1.id, client2.id, date, time);
+    //     const treatment1 = await booking.findTreatment("***");
+    //     const treatment2 = await booking.findTreatment("***");
 
-    //     const bookings = await booking.findAllBookings('2022-11-24');
+    //     await booking.booking(treatment1.id, client1.id, date, time);
+    //     await booking.booking(treatment2.id, client1.id, date, time);
+    //     await booking.booking(treatment3.id, client2.id, date, time);
 
-    //     assert.equal([  {
-    //         //   "booking_date": ['Date': '2022-11-23T22:00:00.000Z'],
-    //           "booking_time": "07:00:00",
-    //           "client_id": 1,
-    //           "id": 9,
-    //          "stylist_id": 1,
-    //          "treatment_id": 2
-    //           }], bookings);
+    //     const bookings = await booking.findAllBookings({date, time});
+
+    //     assert.equal([], bookings);
 
     // });
 

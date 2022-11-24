@@ -26,7 +26,7 @@ module.exports = function salonBooking(db) {
     }
 
     async function clientID(name){
-        var db_results = await db.none('select id by client where first_name = $1', [name])
+        var db_results = await db.one('select id by client where first_name = $1', [name])
         return db_results 
     }
 
