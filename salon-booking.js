@@ -36,7 +36,7 @@ module.exports = function salonBooking(db) {
     }
 
     async function findAllBookings(date) {
-        var db_results = await db.manyOrNone('select * from booking where booking_date = $1', [date])
+        var db_results = await db.manyOrNone('select client_id, treatment_id,stylist_id, booking_date, booking_time from booking where booking_date = $1', [date])
         return db_results
     }
 

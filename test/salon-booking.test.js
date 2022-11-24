@@ -57,19 +57,22 @@ describe("The Booking Salon", function () {
         }], bookings);
     });
 
-    // it("should be able to allow a client to make a booking", async function () {
-    //     const client = await booking.findClient("062 166 8478");
-    //     console.log(client);
-    //     const clientID = await booking.clientID('Zee')
-    //     // console.log(clientID);
+    it("should be able to allow a client to make a booking", async function () {
+        // const client = await booking.findClient("062 166 8478");
+        // console.log(client);
+        // const clientID = await booking.clientID('Zee')
+        // console.log(clientID);
 
-    //     const book = await booking.makeBooking(1, 2, 1, '2022-11-23', '07:00:00');
-    //     // console.log(book);/
-    //     const bookings = await booking.findAllBookings(client);
-    //     // console.log(bookings);
+        await booking.makeBooking(1, 2, 1, '2022-11-23', '07:00:00');
+        await booking.makeBooking(2, 2, 1, '2022-11-23', '07:00:00');
+        await booking.makeBooking(1, 2, 1, '2022-11-24', '07:00:00');
 
-    //     assert.equal([], bookings);
-    // })
+        // console.log(book);/
+        const bookings = await booking.findAllBookings('2022-11-23');
+        console.log(bookings);
+
+        assert.equal([], bookings);
+    })
 
     // it("should be able to get bookings for a date", async function () {
     //     const client1 = await booking.findClient("***");
