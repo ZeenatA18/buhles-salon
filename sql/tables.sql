@@ -25,7 +25,7 @@ CREATE TABLE stylist(
 
 CREATE TABLE booking(
     id SERIAL NOT NULL PRIMARY KEY,
-    bookind_date DATE NOT NULL,
+    booking_date DATE NOT NULL,
     booking_time TIME NOT NULL,
     client_id integer not null,
     treatment_id integer not null,

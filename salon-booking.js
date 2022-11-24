@@ -16,8 +16,18 @@ module.exports = function salonBooking(db) {
     }
 
     async function findAllTreatments() {
-        var db_results = await db.manyOrNone('select * from treatment')
+        var db_results = await db.manyOrNone('select type from treatment')
         return db_results
+    }
+
+    async function client(first_name, last_name, phone_number){
+        var db_results = await db.none('INSERT INTO client(first_name, last_name, phone_number) values($1,$2,$3)', [first_name, last_name, phone_number])
+        return db_results 
+    }
+
+    async function clientID(name){
+        var db_results = await db.none('select id by client where first_name = $1', [name])
+        return db_results 
     }
 
     async function makeBooking(clientId, treatmentId, stylistId, date, time) {
@@ -42,6 +52,8 @@ module.exports = function salonBooking(db) {
         findAllTreatments,
         makeBooking,
         findAllBookings,
-        findClientBookings
+        findClientBookings,
+        client,
+        clientID
     }
 }  
