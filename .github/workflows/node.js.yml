@@ -50,9 +50,7 @@ jobs:
     - run: npm install -g npm
     - run: npm install
     - run: |
-        PGPASSWORD=pg123 psql -h localhost -U postgres -d salon_test -a -f ./sql/tables.sql
-    -run: |
-        PGPASSWORD=pg123 psql -h localhost -U postgres -d salon_test -a -f ./sql/data.sql
+        PGPASSWORD=pg123 psql -h localhost -U postgres -d salon_test -a -f ./sql/all.sql
     - run: npm run build --if-present
     - run: npm test
     env: 
