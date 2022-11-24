@@ -20,11 +20,6 @@ module.exports = function salonBooking(db) {
         return db_results
     }
 
-    async function client(first_name, last_name, phone_number){
-        var db_results = await db.none('INSERT INTO client(first_name, last_name, phone_number) values($1,$2,$3)', [first_name, last_name, phone_number])
-        return db_results 
-    }
-
     async function makeBooking(clientId, treatmentId, stylistId, date, time) {
         var db_results = await db.none('INSERT INTO booking(client_id, treatment_id, stylist_id, booking_date, booking_time) values($1,$2,$3,$4,$5)', [clientId, treatmentId, stylistId, date, time])
         return db_results
@@ -53,7 +48,6 @@ module.exports = function salonBooking(db) {
         makeBooking,
         findAllBookings,
         findClientBookings,
-        client,
         findAllBookingz
     }
 }  
